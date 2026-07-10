@@ -1,10 +1,7 @@
-# SaylaniAIAgentCourse-Patient-Management-System
-A simple REST API for managing patient records, built with FastAPI and SQLAlchemy
-
 # Patient Management System — FastAPI CRUD API
 
-A simple REST API for managing patient records, built with FastAPI and
-SQLAlchemy (using SQLite as the database, so no separate database
+A simple REST API for managing patient records, built with **FastAPI** and
+**SQLAlchemy** (using SQLite as the database, so no separate database
 server setup is needed).
 
 ## Folder Structure
@@ -24,24 +21,24 @@ patient_management_system/
 
 ## Setup Instructions
 
-1. Create a virtual environment (recommended, keeps dependencies isolated):
+1. **Create a virtual environment** (recommended, keeps dependencies isolated):
    ```bash
    python -m venv venv
    source venv/bin/activate      # on Windows: venv\Scripts\activate
    ```
 
-2. Install dependencies:
+2. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Run the server (from the project's root folder, the one containing `app/`):
+3. **Run the server** (from the project's root folder, the one containing `app/`):
    ```bash
    uvicorn app.main:app --reload
    ```
    `--reload` auto-restarts the server whenever you change the code — handy while developing.
 
-4. Open the interactive docs in your browser:
+4. **Open the interactive docs** in your browser:
    ```
    http://127.0.0.1:8000/docs
    ```
@@ -83,10 +80,10 @@ Sample JSON body for `POST /patients/`:
 
 You have two easy options:
 
-1. Swagger UI (`/docs`) — click on any endpoint, hit "Try it out", fill
+1. **Swagger UI** (`/docs`) — click on any endpoint, hit "Try it out", fill
    in the fields, and click "Execute". This is the fastest way and needs
    no extra software.
-2. Postman or curl — for example:
+2. **Postman** or **curl** — for example:
    ```bash
    curl -X POST "http://127.0.0.1:8000/patients/" \
      -H "Content-Type: application/json" \
@@ -95,10 +92,10 @@ You have two easy options:
 
 ## Notes on Design Choices (useful if asked in a viva/demo)
 
-- SQLite was chosen for simplicity — perfect for an assignment. Switching
+- **SQLite** was chosen for simplicity — perfect for an assignment. Switching
   to PostgreSQL/MySQL later only requires changing the URL in `database.py`.
-- schemas.py vs models.py: `models.py` defines the database table;
+- **schemas.py vs models.py**: `models.py` defines the database table;
   `schemas.py` defines what the API accepts/returns. Keeping them separate
   is standard FastAPI practice and gives you control over API validation.
-- crud.py keeps database logic out of `main.py`, so routes stay short
+- **crud.py** keeps database logic out of `main.py`, so routes stay short
   and readable, and the CRUD functions could be reused or tested separately.
